@@ -17,12 +17,15 @@ const Box = styled.div`
   width: 400px;
   height: 400px;
   background-color: cadetblue;
-  box-shadow: 0px 25px 100px -60px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 25px 100px -60px rgba(0, 0, 0.18, 1);
+  border-radius: 2%;
 `;
 
 const Title = styled.h1`
   margin: 0;
   padding: 15px 25px;
+  color: #f6f6f6;
+  background-color: darkslategrey;
 `;
 
 const TodoList = styled.div``;

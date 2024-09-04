@@ -14,6 +14,7 @@ const Input = styled.input`
   width: 100%;
   border: none;
   outline: 0;
+  padding: 5px;
 `;
 
 export default function TodoInput() {
