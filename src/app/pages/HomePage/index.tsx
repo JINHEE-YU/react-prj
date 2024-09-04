@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
+import TodoInput from 'app/components/TodoInput';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
 
 const Box = styled.div`
   width: 400px;
-  height: 600px;
+  height: 400px;
   background-color: cadetblue;
   box-shadow: 0px 25px 100px -60px rgba(0, 0, 0, 0.18);
 `;
@@ -28,7 +29,7 @@ const TodoList = styled.div``;
 const TodoItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 15px 25px;
+  padding: 10px 25px;
   width: 100%;
   font-size: 1.2em;
   border-bottom: 1px solid #eee;
@@ -48,6 +49,7 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>할 일</Title>
+          <TodoInput></TodoInput>
           <TodoList>
             <TodoItem>
               <TodoCheck type="checkbox" />
