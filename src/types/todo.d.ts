@@ -2,7 +2,7 @@ interface ITodoItemContent {
   content: string;
 }
 
-interface IdotoItem extends ITodoItemContent {
+interface ITodoItem extends ITodoItemContent {
   id: string;
   completed: boolean;
   edition: boolean;
