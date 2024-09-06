@@ -66,10 +66,20 @@ export function HomePage() {
       <Wrapper>
         <Box>
           <Title>할 일</Title>
-          <TodoInput></TodoInput>
+          <TodoInput
+            setTodoList={(todo: ITodoItem) => {
+              let max = todoList.reduce(
+                (pre, todo) =>
+                  Number(pre) < Number(todo.id) ? Number(todo.id) : pre,
+                0,
+              );
+              todo.id = (max + 1).toString();
+              return setTodoList([todo, ...todoList]);
+            }}
+          />
           <TodoList>
             {todoList.map(todo => (
-              <TodoItem todo={todo} />
+              <TodoItem key={todo.id} todo={todo} />
             ))}
           </TodoList>
         </Box>
