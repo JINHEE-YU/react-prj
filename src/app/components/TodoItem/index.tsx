@@ -24,10 +24,16 @@ const TodoContent = styled.span<{ checked: boolean }>`
   color: ${props => (props.checked ? '#5e5e5e' : '#fff')};
 `;
 
-export default function TodoItem({ todo }: { todo: ITodoItem }) {
+export default function TodoItem({
+  todo,
+  onToggle,
+}: {
+  todo: ITodoItem;
+  onToggle: (id: string) => void;
+}) {
   return (
     <Box>
-      <Checkbox checked={todo.completed} />
+      <Checkbox checked={todo.completed} onClick={() => onToggle(todo.id)} />
       <Block marginLeft="10px" />
       <TodoContent checked={todo.completed}>{todo.content}</TodoContent>
     </Box>

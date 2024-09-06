@@ -57,6 +57,15 @@ export function HomePage() {
       edition: false,
     },
   ]);
+
+  const handleToggle = (id: string) => {
+    setTodoList(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  };
+
   return (
     <>
       <Helmet>
@@ -79,7 +88,7 @@ export function HomePage() {
           />
           <TodoList>
             {todoList.map(todo => (
-              <TodoItem key={todo.id} todo={todo} />
+              <TodoItem key={todo.id} todo={todo} onToggle={handleToggle} />
             ))}
           </TodoList>
         </Box>
