@@ -8,6 +8,7 @@ const Circle = styled.div<{ checked?: boolean }>`
   border-radius: 50%;
   border: 2px solid ${props => (props.checked ? '#21402a' : '#fff')};
   padding: 3px;
+  cursor: pointer;
 
   & > .checkbox-icon {
     width: 100%;
