@@ -1,10 +1,10 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { TodoState } from './types';
 import { useInjectReducer } from 'utils/redux-injectors';
-// import { useInjectReducer } from "redux-injectors";
+import { loadTodoData, saveTodoData } from 'store/localStorage';
 
 export const initialState: TodoState = {
-  todolist: [],
+  todolist: loadTodoData(),
 };
 
 const slice = createSlice({
@@ -15,6 +15,7 @@ const slice = createSlice({
       // 2. 행위 정의: 데이터 상태 저장
       reducer: (state, action: PayloadAction<ITodoItem>) => {
         state.todolist.push(action.payload);
+        saveTodoData(state.todolist);
       },
       // 1. 데이터 정의: 내용을 받아 ITodoItem으로 만들기
       prepare: (content: string) => {
@@ -36,6 +37,7 @@ const slice = createSlice({
       if (todo) {
         todo.completed = !todo.completed;
       }
+      saveTodoData(state.todolist);
     },
     editModeTodo(state, action: PayloadAction<{ id: string }>): void {
       const id = action.payload.id;
@@ -58,11 +60,13 @@ const slice = createSlice({
       if (todo) {
         todo.content = content;
       }
+      saveTodoData(state.todolist);
     },
     deleteTodo(state, action: PayloadAction<{ id: string }>) {
       const id = action.payload.id;
       const filteredTodos = state.todolist.filter(todo => todo.id !== id);
       state.todolist = filteredTodos;
+      saveTodoData(state.todolist);
     },
   },
 });
