@@ -61,8 +61,8 @@ export function HomePage() {
     {
       id: '1',
       completed: false,
-      content: '투두입니다 1',
-      edition: false,
+      content: '투두입니다 1 - 수정중',
+      edition: true,
     },
     {
       id: '2',
