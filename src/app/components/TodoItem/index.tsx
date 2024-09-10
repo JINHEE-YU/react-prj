@@ -41,25 +41,40 @@ const TodoContent = styled.span<{ checked: boolean }>`
 
 export default function TodoItem({
   todo,
-  onToggle,
+  checkTodo,
+  editModeTodo,
+  editTodo,
+  deleteTodo,
 }: {
   todo: ITodoItem;
-  onToggle: (id: string) => void;
+  checkTodo: () => void;
+  editModeTodo: () => void;
+  editTodo: (todo: string) => void;
+  deleteTodo: () => void;
 }) {
   return (
     <Box>
       <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-        <Checkbox checked={todo.completed} onClick={() => onToggle(todo.id)} />
+        <Checkbox checked={todo.completed} onClick={() => checkTodo()} />
         <Block marginLeft="10px" />
         {todo.edition ? (
-          <TodoInput isEditing={todo.edition} />
+          <TodoInput
+            editTodo={(todo: string) => {
+              editTodo(todo);
+              editModeTodo();
+            }}
+            isEditing={todo.edition}
+            editContent={todo.content}
+          />
         ) : (
-          <TodoContent checked={todo.completed}>{todo.content}</TodoContent>
+          <TodoContent checked={todo.completed} onClick={() => editModeTodo()}>
+            {todo.content}
+          </TodoContent>
         )}
       </div>
       <CircleButton
         className="delete-button"
-        onClick={() => {}}
+        onClick={() => deleteTodo()}
         Icon={() => (
           <svg
             xmlns="http://www.w3.org/2000/svg"
