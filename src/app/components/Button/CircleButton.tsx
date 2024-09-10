@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Circle = styled.div`
-  width: 26px;
-  min-width: 26px;
-  height: 26px;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;

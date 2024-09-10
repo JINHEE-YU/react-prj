@@ -11,7 +11,7 @@ const Box = styled.div`
   margin: 10 10 10 10;
   padding: 10px 25px;
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1em;
   border-bottom: 1px solid #eee;
 
   & > .delete-button {

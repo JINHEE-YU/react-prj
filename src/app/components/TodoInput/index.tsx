@@ -6,7 +6,7 @@ const Box = styled.div<{ isEditing?: boolean }>`
   align-items: center;
   padding: ${props => (props.isEditing ? '5px 0px' : '10px 25px')};
   width: 100%;
-  font-size: 1.1em;
+  font-size: 1em;
   border-bottom: 1px solid #eee;
 `;
 
