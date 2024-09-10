@@ -30,7 +30,7 @@ export default function TodoInput({
   editTodo?: (content: string) => void;
   editModeTodo?: () => void;
 }) {
-  const [content, setContent] = React.useState<string>('');
+  const [content, setContent] = React.useState<string>(editContent ?? '');
   return (
     <Box isEditing={isEditing}>
       <Input
@@ -38,13 +38,13 @@ export default function TodoInput({
         value={content}
         onBlur={e => {
           if (e.currentTarget === e.target) {
-            editTodo && editTodo(content);
+            editTodo && editTodo(e.target.value);
           }
         }}
         onChange={e => setContent(e.target.value)}
         onKeyDown={e => {
           if (content === '') return;
-          if (e.key !== 'Enter' && e.key !== 'NumpatedEnter') return;
+          if (e.key !== 'Enter' && e.key !== 'NumpadEnter') return;
           if (isEditing) {
             editTodo && editTodo(content);
           } else {

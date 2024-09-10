@@ -101,7 +101,7 @@ export function HomePage() {
                   dispatch(
                     TodoActions.editTodo({
                       id: todo.id,
-                      content: todo.content,
+                      content: content,
                     }),
                   )
                 }
