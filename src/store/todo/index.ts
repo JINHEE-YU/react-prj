@@ -4,7 +4,7 @@ import { useInjectReducer } from 'utils/redux-injectors';
 import { loadTodoData, saveTodoData } from 'store/localStorage';
 
 export const initialState: TodoState = {
-  todolist: loadTodoData(),
+  todoList: loadTodoData(),
 };
 
 const slice = createSlice({
@@ -14,8 +14,8 @@ const slice = createSlice({
     addTodo: {
       // 2. 행위 정의: 데이터 상태 저장
       reducer: (state, action: PayloadAction<ITodoItem>) => {
-        state.todolist.push(action.payload);
-        saveTodoData(state.todolist);
+        state.todoList.push(action.payload);
+        saveTodoData(state.todoList);
       },
       // 1. 데이터 정의: 내용을 받아 ITodoItem으로 만들기
       prepare: (content: string) => {
@@ -33,21 +33,21 @@ const slice = createSlice({
     },
     checkTodo(state, action: PayloadAction<{ id: string }>): void {
       const id = action.payload.id;
-      const todo = state.todolist.find(todo => todo.id === id);
+      const todo = state.todoList.find(todo => todo.id === id);
       if (todo) {
         todo.completed = !todo.completed;
       }
-      saveTodoData(state.todolist);
+      saveTodoData(state.todoList);
     },
     editModeTodo(state, action: PayloadAction<{ id: string }>): void {
       const id = action.payload.id;
 
-      for (const todo of state.todolist) {
+      for (const todo of state.todoList) {
         if (todo.id === id) continue;
         if (todo.edition === true) todo.edition = false;
       }
 
-      const todo = state.todolist.find(todo => todo.id === id);
+      const todo = state.todoList.find(todo => todo.id === id);
       if (todo) {
         todo.edition = !todo.edition;
       }
@@ -56,17 +56,17 @@ const slice = createSlice({
       const id = action.payload.id;
       const content = action.payload.content;
 
-      const todo = state.todolist.find(todo => todo.id === id);
+      const todo = state.todoList.find(todo => todo.id === id);
       if (todo) {
         todo.content = content;
       }
-      saveTodoData(state.todolist);
+      saveTodoData(state.todoList);
     },
     deleteTodo(state, action: PayloadAction<{ id: string }>) {
       const id = action.payload.id;
-      const filteredTodos = state.todolist.filter(todo => todo.id !== id);
-      state.todolist = filteredTodos;
-      saveTodoData(state.todolist);
+      const filteredTodos = state.todoList.filter(todo => todo.id !== id);
+      state.todoList = filteredTodos;
+      saveTodoData(state.todoList);
     },
   },
 });

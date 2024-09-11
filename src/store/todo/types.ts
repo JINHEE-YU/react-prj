@@ -1,3 +1,3 @@
 export interface TodoState {
-  todolist: ITodoItem[];
+  todoList: ITodoItem[];
 }

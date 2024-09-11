@@ -5,5 +5,5 @@ export const baseSelector = (state: RootState) => state.todo;
 
 export const TodoListSelector = createSelector(
   baseSelector,
-  state => state.todolist,
+  state => state.todoList,
 );
