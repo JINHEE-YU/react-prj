@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const Box = styled.div<{ isEditing?: boolean }>`
@@ -30,10 +30,18 @@ export default function TodoInput({
   editTodo?: (content: string) => void;
   editModeTodo?: () => void;
 }) {
+  // 포커스 설정
+  const inputRef = useRef<HTMLInputElement>(null);
+  useLayoutEffect(() => {
+    if (inputRef.current !== null) inputRef.current.focus();
+  });
+
   const [content, setContent] = React.useState<string>(editContent ?? '');
+
   return (
     <Box isEditing={isEditing}>
       <Input
+        ref={inputRef}
         placeholder="할일을 입력해 주세요."
         value={content}
         onBlur={e => {
