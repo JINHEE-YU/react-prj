@@ -1,34 +1,15 @@
 import React, { useLayoutEffect, useRef } from 'react';
-import styled from 'styled-components';
-
-const Box = styled.div<{ isEditing?: boolean }>`
-  display: flex;
-  align-items: center;
-  padding: ${props => (props.isEditing ? '0px 0px' : '10px 25px')};
-  width: 100%;
-  font-size: 1em;
-  border-bottom: 1px solid #eee;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  border: none;
-  outline: 0;
-  padding: 5px;
-`;
-
+import { Box, Input } from './index.style';
 export default function TodoInput({
   addTodo,
-  isEditing, //prop 수정용?추가용?
-  editContent, // 기존 todo 내용 임시 저장
+  isEditing, // true:수정용/false:추가용
+  editContent, // 기존 content 내용 임시 저장
   editTodo,
-  editModeTodo,
 }: {
   addTodo?: (content: string) => void;
   isEditing?: boolean;
   editContent?: string;
   editTodo?: (content: string) => void;
-  editModeTodo?: () => void;
 }) {
   // 포커스 설정
   const inputRef = useRef<HTMLInputElement>(null);
