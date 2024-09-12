@@ -16,6 +16,10 @@ export const Box = styled.div`
   box-shadow: 0px 25px 100px -60px rgba(0, 0, 0.18, 1);
   border-radius: 2%;
   overflow-y: auto;
+  @media (max-width: 425px) {
+    width: 100%;
+    height: 100vh;
+  }
   & {
     overflow-y: auto; /* 세로 스크롤 추가 */
   }
@@ -50,4 +54,10 @@ export const Title = styled.h1`
   background-color: darkslategrey;
 `;
 
-export const TodoList = styled.div``;
+export const TodoList = styled.div`
+  height: 270px;
+  overflow-y: auto;
+  @media (max-width: 425px) {
+    height: calc(100vh - 128px);
+  }
+`;
