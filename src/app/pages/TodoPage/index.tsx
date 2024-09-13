@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Wrapper, Box, Title, TodoList } from './index.style';
-import TodoInput from 'app/components/TodoInput';
-import TodoItem from 'app/components/TodoItem';
+import TodoInput from 'app/components/Todo/TodoInput';
+import TodoItem from 'app/components/Todo/TodoItem';
 import { useTodoSlice } from 'store/todo';
 import { useDispatch, useSelector } from 'react-redux';
 import { TodoListSelector } from 'store/todo/selectors';
