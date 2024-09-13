@@ -7,7 +7,7 @@ import { useTodoSlice } from 'store/todo';
 import { useDispatch, useSelector } from 'react-redux';
 import { TodoListSelector } from 'store/todo/selectors';
 
-export function HomePage() {
+export function TodoPage() {
   const { TodoActions } = useTodoSlice();
   const todoList = useSelector(TodoListSelector);
   const dispatch = useDispatch();

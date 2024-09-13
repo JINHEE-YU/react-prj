@@ -12,7 +12,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
 
-import { HomePage } from './pages/HomePage/Loadable';
+import { MemoPage } from './pages/MemoPage/Loadable';
+import { TodoPage } from './pages/TodoPage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
@@ -21,15 +22,17 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - Todo"
-        defaultTitle="Todo"
+        titleTemplate="%s - React-proj"
+        defaultTitle="React-proj"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A Todo application" />
+        <meta name="description" content="A React-proj application" />
       </Helmet>
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<MemoPage />} />
+        <Route path="/memo" element={<MemoPage />} />
+        <Route path="/todo" element={<TodoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <GlobalStyle />
