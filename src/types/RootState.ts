@@ -1,5 +1,6 @@
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
+import { MemoState } from 'store/memo/types';
 import { TodoState } from 'store/todo/types';
 
 /* 
@@ -8,5 +9,6 @@ import { TodoState } from 'store/todo/types';
 */
 export interface RootState {
   todo: TodoState;
+  memo: MemoState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

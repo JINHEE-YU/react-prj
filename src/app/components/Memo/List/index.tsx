@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import MemoItem from '../Item';
+import { useSelector } from 'react-redux';
+import { MemoListSelector } from 'store/memo/selectors';
 
 const List = styled.div`
   width: 300px;
@@ -19,26 +21,19 @@ const List = styled.div`
 `;
 
 export default function MemoList() {
+  const memoList = useSelector(MemoListSelector);
+
   return (
     <List>
-      <MemoItem
-        id="1"
-        created_at={new Date().toString()}
-        selected={false}
-        preview="오늘의 메모입니다.nmnmm,m,m,m,m preview12312312 3123123123123"
-      />
-      <MemoItem
-        id="1"
-        created_at={new Date().toString()}
-        selected={true}
-        preview="오늘의 메모입니다.nmnmm,m,m,m,m preview12312312 3123123123123"
-      />
-      <MemoItem
-        id="1"
-        created_at={new Date().toString()}
-        selected={false}
-        preview="오늘의 메모입니다.nmnmm,m,m,m,m preview12312312 3123123123123"
-      />
+      {memoList.map(memo => (
+        <MemoItem
+          id={memo.id}
+          created_at={memo.created_at}
+          selected={memo.selected}
+          preview={memo.preview}
+          content={memo.content}
+        />
+      ))}
     </List>
   );
 }
