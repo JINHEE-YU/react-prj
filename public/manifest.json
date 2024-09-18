@@ -1,6 +1,6 @@
 {
-  "short_name": "Todo",
-  "name": "할일 T",
+  "short_name": "Memo/Todo",
+  "name": "React를 이용한 메모, Todo 관리 프로그램",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#f2d6bb",
   "background_color": "#ffffff"
 }
