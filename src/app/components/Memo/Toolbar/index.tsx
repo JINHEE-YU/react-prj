@@ -84,8 +84,8 @@ export default function MemoToolBar() {
           onClick={() =>
             dispatch(
               MemoActions.addMemo(
-                '내용을 입력해 주세요(content)',
-                '내용을 입력해 주세요(preview)',
+                '내용을 입력해 주세요.',
+                '내용을 입력해 주세요.',
               ),
             )
           }

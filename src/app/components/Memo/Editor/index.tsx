@@ -49,7 +49,9 @@ export default function MemoEditor() {
     <Box>
       <Block marginTop="5px" />
       <MemoDate>
-        {new Date(selectedMemo?.created_at ?? '').toLocaleString('ko')}
+        {selectedMemo !== undefined
+          ? new Date(selectedMemo?.created_at ?? '').toLocaleString('ko')
+          : '새 메모를 생성해 보세요.'}
       </MemoDate>
 
       <ReactQuill
@@ -78,6 +80,7 @@ export default function MemoEditor() {
             container: '#toolbar',
           },
         }}
+        readOnly={selectedMemo === undefined}
       />
     </Box>
   );

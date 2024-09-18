@@ -21,7 +21,7 @@ const MemoTitle = styled.div`
   color: #2c2c2c;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: break-word;
+  word-wrap: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -50,7 +50,9 @@ export default function MemoItem({
       selected={selected}
       onClick={() => dispatch(MemoActions.selectMemo({ id: id }))}
     >
-      <MemoTitle>{preview}</MemoTitle>
+      <MemoTitle>
+        {preview.replace(/\n/g, '') !== '' ? preview : '내용을 입력해 주세요.'}
+      </MemoTitle>
       <MemoContent>{new Date(created_at).toLocaleString('ko')}</MemoContent>
       <MemoContent>{preview}</MemoContent>
     </Box>
