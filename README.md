@@ -29,9 +29,8 @@
 - node_modules : 해당 템플릿에서 사용하는 모든 라이브러리를 모아두는 폴더
   - react, redux 사용 중
 - public :
-
-  - 아이콘, 파비콘 :
-  - manifast.json : pwa 개발시? 사용할 설정파일
+  - 아이콘, 파비콘 : 프로젝트에서 사용할 대표 아이콘
+  - manifast.json : 웹 애플리케이션의 정보를 JSON 텍스트 파일로 제공(pwa 설정)
   - robots.txt : 구글 검색엔진을 위한 파일
 
 - .babel-plugin-macrosrc.js : babel이라는 라이브러리의 설정파일. (현재 사용 안함)
